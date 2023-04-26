@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/f5445ae524.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
+    <%= render 'shared/header' %>
+    <div class="container">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <%end%>
+      <% if alert%>
+        <p class="alert"><%= alert %></p>
+      <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>
