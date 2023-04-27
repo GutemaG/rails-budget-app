@@ -71,4 +71,5 @@ group :test do
   gem 'webdrivers'
 end
 gem 'bootstrap', '~> 5.3.0.alpha3'
+gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
