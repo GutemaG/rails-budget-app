@@ -1,0 +1,23 @@
+<nav class="navbar navbar-main bg-main">
+  <div class="container-fluid d-flex justify-content-between">
+    <button class="navbar-toggler border-0" type="button">
+      <span class="text-main">
+        <%= link_to root_path do%>
+          <i class="fa-solid fa-arrow-left text-white"></i>
+        <% end %>
+      </span>
+    </button>
+    <div class="navbar-brand mx-auto text-main">
+      <% if controller_name == 'sessions'%>
+        <span class="text-white text-uppercase">
+          <%= 'Login' %>
+        </span>
+      <% elsif controller_name == 'registrations'%>
+        <span class="text-white text-uppercase">
+          <%= 'Register' %>
+        </span>
+      <%end%>
+    </div>
+    <%= f.submit "#{controller_name=="sessions" ? "Login" : "Next"}", class: 'text-white btn m-2'%>
+  </div>
+</nav>

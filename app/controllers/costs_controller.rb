@@ -1,9 +1,10 @@
 class CostsController < ApplicationController
   before_action :set_cost, only: %i[show edit update destroy]
+  before_action :set_group
 
   # GET /costs or /costs.json
   def index
-    @costs = Cost.all
+    @costs = @group.costs.includes(:groups).order(created_at: :desc)
   end
 
   # GET /costs/1 or /costs/1.json
@@ -20,11 +21,12 @@ class CostsController < ApplicationController
   # POST /costs or /costs.json
   def create
     @cost = Cost.new(cost_params)
+    @cost.author = current_user
 
     respond_to do |format|
       if @cost.save
-        format.html { redirect_to cost_url(@cost), notice: 'Cost was successfully created.' }
-        format.json { render :show, status: :created, location: @cost }
+        @group_cost = GroupCost.create(group: @group, cost: @cost)
+        format.html { redirect_to group_costs_path(@group), notice: 'Cost was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @cost.errors, status: :unprocessable_entity }
@@ -62,8 +64,12 @@ class CostsController < ApplicationController
     @cost = Cost.find(params[:id])
   end
 
+  def set_group
+    @group = current_user.groups.find(params[:group_id])
+  end
+
   # Only allow a list of trusted parameters through.
   def cost_params
-    params.require(:cost).permit(:name, :amount, :author_id)
+    params.require(:cost).permit(:name, :amount)
   end
 end

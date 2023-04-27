@@ -1,14 +1,8 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Costs</h1>
-
 <div id="costs">
   <% @costs.each do |cost| %>
     <%= render cost %>
-    <p>
-      <%= link_to "Show this cost", cost %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New cost", new_cost_path %>
+<%= link_to "New cost", new_group_cost_path %>

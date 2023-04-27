@@ -1,3 +1,9 @@
-<h1>
-  "HOME page"
-</h1>
+<div class="d-flex justify-content-center align-items-center">
+  <h1 class="text-main">Welcome To Simple Pay</h1>
+  <div class="position-absolute bottom-0 start-50 translate-middle-x w-100 m-3">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <%= link_to "LOGIN", user_session_path, class: "btn bg-main"%>
+      <%= link_to "SIGN UP", new_user_registration_path, class: "btn"%>
+    </div>
+  </div>
+</div>
