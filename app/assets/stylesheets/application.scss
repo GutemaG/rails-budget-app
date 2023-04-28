@@ -1,8 +1,8 @@
 @import 'bootstrap';
 
 @font-face {
-   font-family: 'ProximaNova';
-   src: url('Proxima Nova Font.otf');
+  font-family: 'ProximaNova';
+  src: url('Proxima Nova Font.otf');
 }
 
 $text-color: #434b54;
@@ -11,7 +11,7 @@ $secondary-color: #5fb523;
 $text-white: #fff;
 
 * {
-  font-family: 'Proxima Nova Font';
+  font-family: 'Proxima Nova Font', sans-serif;
 }
 
 .btn-primary {
