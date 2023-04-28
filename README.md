@@ -173,8 +173,8 @@ If you like this project give a star!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-
-I would like to thank microverse community
+I would like to thank Gregoire Vella whose design this application.You can see more of her work on [Behanse](https://www.behance.net/gregoirevella)
+and I would like to thank microverse community
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
