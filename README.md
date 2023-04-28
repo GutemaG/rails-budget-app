@@ -74,7 +74,7 @@
 
 ## :rocket: Live Demo
 - [Here](https://ruby-budget-app.onrender.com/) is the live demo of my project
-- Video description is found [here]()
+- Video description is found [here](https://www.loom.com/share/e014f313b7834929a575df5a8d7494db)
 
 <!-- GETTING STARTED -->
 
