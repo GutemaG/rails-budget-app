@@ -4,7 +4,7 @@
     <div class="card m-2">
       <div class="d-flex gap-2 align-items-center justify-content-between p-3">
         <div class="img w-50">
-          <%= image_tag group.icon,class: "w-75" %>
+          <img src=<%=group.icon%> alt="ICON" />
         </div>
         <div>
           <%=link_to group_costs_path(group) do%>
