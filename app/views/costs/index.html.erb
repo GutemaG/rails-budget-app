@@ -1,0 +1,28 @@
+<%= render 'shared/header', title: 'Transactions' %>
+<div id="costs">
+  <% @costs.each do |cost| %>
+    <div class="card m-2">
+      <div class="d-flex gap-2 align-items-center justify-content-between p-3">
+        <div>
+          <h4 class="text-main"><%=cost.name %></h4>
+          <p class="text-gray-600 text-xs">
+            <%= cost.created_at.strftime("%d %b %Y") %>
+          </p>
+        </div>
+        <div class="d-flex flex-column gap-1">
+          <span>
+            <%= number_to_currency(cost.amount) %>
+          </span>
+          <div class="flex gap-2">
+            <%# TODO: check %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="position-fixed bottom-0 start-50 translate-middle-x w-100 bg-primary2">
+  <div class="d-grid gap-2 w-100 p-3">
+    <%= link_to "New Transcation", new_group_cost_path, class: "btn text-white border"%>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<%= render 'shared/header', title: "Groups" %>
+<div id="groups">
+  <% @groups.each do |group| %>
+    <div class="card m-2">
+      <div class="d-flex gap-2 align-items-center justify-content-between p-3">
+        <div class="img ">
+          <%= image_tag group.icon,class: "w-30 h-30" %>
+        </div>
+        <div>
+          <%=link_to group_costs_path(group) do%>
+            <h4 class="text-main"><%=group.name %></h4>
+          <%end%>
+          <p class="text-gray-600 text-xs">
+            <%= group.created_at.strftime("%d %b %Y") %>
+          </p>
+        </div>
+        <div class="d-flex flex-column gap-1">
+          <span>
+            <%= number_to_currency(group.costs.sum(:amount)) %>
+          </span>
+          <div class="flex gap-2">
+            <%= link_to edit_group_path(group) do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <%end%>
+            <%= link_to group_path(group), data: {turbo_method: :delete, turbo_confirm: "Are you Sure?"}, class: "btn d-inline" do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="position-fixed bottom-0 start-50 translate-middle-x w-100 bg-primary2">
+  <div class="d-grid gap-2 w-100 p-3">
+    <%= link_to "Add New Group", new_group_path, class: "btn text-white border"%>
+  </div>
+</div>
