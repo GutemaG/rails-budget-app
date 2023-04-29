@@ -1,0 +1,23 @@
+<%= form_with(model: cost, url:"#{action_name == 'edit' ? group_costs_path(@group, cost) : group_costs_path(@group)}") do |form| %>
+  <% if cost.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cost.errors.count, "error") %> prohibited this cost from being saved:</h2>
+      <ul>
+        <% cost.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="m-2">
+    <div>
+      <%= form.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control', placeholder: "Name" %>
+    </div>
+    <div>
+      <%= form.text_field :amount, autofocus: true, autocomplete: "amount", class: 'form-control', placeholder: "Amount" %>
+    </div>
+    <div class="m-2">
+      <%= form.submit class: 'btn bg-primary2' %>
+    </div>
+  </div>
+<% end %>
